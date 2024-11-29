@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Playlist Hình Ảnh</title>
+    <style>
+        .image-container {
+            width: 400px;
+            height: 300px;
+            overflow: hidden;
+            
+        }
+        img {
+            width: 100%;
+            height: 100%;
+            transition: opacity 0.5s ease-in-out;
+        }
+    </style>
+</head>
+<body>
+    <div class="image-container">
+        <img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93" alt="Hình ảnh 1">
+        <img src="https://images.unsplash.com/photo-1512568400610-62da28bc8a13" alt="Hình ảnh 2">
+        <img src="https://images.unsplash.com/photo-1511920170033-f8396924c348" alt="Hình ảnh 3"> 
+    </div>
+    <button onclick="nextImage()">Tiếp theo</button>
+    <button onclick="prevImage()">Trước đó</button>
+
+    <script>
+        const images = document.querySelectorAll('.image-container img');
+        let currentIndex = 0;
+
+        function nextImage() {
+            images[currentIndex].style.opacity = 0;
+            currentIndex = (currentIndex + 1) % images.length;
+            images[currentIndex].style.opacity = 1;
+        }
+
+        function prevImage() {
+            images[currentIndex].style.opacity = 0;
+            currentIndex = (currentIndex - 1 + images.length) % images.length; // Đảm bảo index luôn dương
+            images[currentIndex].style.opacity = 1;
+        }
+    </script>
+</body>
+</html>
