@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bai2</title>
+    <style>
+        body{
+            text-align: center;
+            font-family: arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f8ff;
+        }
+        div{
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            
+        }
+        .my-button{
+            background-color: #279a41;
+            color: white;
+            text-align: center;
+            display: flex;
+            cursor: pointer;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 20px;
+            font-size: 16px;
+        }
+        .my-button:hover{ background-color: #1ceb4c;}
+    </style>
+</head>
+<body>
+    <div>
+        <button class = "my-button" onclick="changeBackgroundColor()">Đổi màu nền</button>
+    </div>
+    <script>
+        function getRandomColor() {
+            const letters = '0123456789ABCDEF';
+            let color = '#';
+            for (let i = 0; i < 6; i++) {
+                color += letters[Math.floor(Math.random() *16)];
+            }
+            return color;
+            }
+        function changeBackgroundColor(){
+            document.body.style.backgroundColor = getRandomColor();
+        }
+    </script>
+</body>
+</html>
