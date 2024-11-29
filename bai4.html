@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>bai4</title>
+    <style>
+        .image-container {
+            width: 760px;
+            height: 450px;
+            overflow: hidden;
+            display: flexbox;
+            
+            
+        }
+        body{
+            text-align: center;
+            font-family: arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f8ff;
+        }
+        .picture{
+            
+            align-self: center;
+            width: 500px;
+            margin-top: 100px;
+            height: 500px;
+           
+        }
+        
+        .button{
+            background-color: #1871eb;
+            font-size: 20px;
+            width: 120px;
+            height: 50px;
+            margin: 40px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            color: white;
+
+        }
+        </style>
+        
+</head>
+<body>
+    <div class="image-container">
+        <img class="picture" src="https://images.unsplash.com/photo-1509042239860-f550ce710b93" id="picture1">
+        <img class="picture" src="https://images.unsplash.com/photo-1512568400610-62da28bc8a13" id="picture2">
+        <img class="picture" src="https://images.unsplash.com/photo-1511920170033-f8396924c348" id="picture3">
+    </div>
+    <div>
+        <button class="button" onclick="nextImages()">Trước</button>
+        <button class="button" onclick="previousImages()">Tiếp</button>
+    </div>
+    
+</body>
+</html>
