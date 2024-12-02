@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            font-family: arial, sans-serif;
+            background-color: #dde5eb;
+            
+        }
+        .button{
+            background-color: #279a41;
+            color: white;
+            text-align: center;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 5px;
+            border: none;
+            margin: 0 auto;
+            display: block;
+        }
+        
+        .quiz{
+            margin: 10px;
+            padding: 10px;
+            line-height: 2;
+            
+        }
+        
+        
+        h1{
+            text-align: center;
+            font-size: 35px;
+        }
+        label{
+            font-size: 20px;
+        }
+        .answer{
+            text-align: center;
+            font-weight: 600;
+            margin: 20px;
+            display: none;
+        }
+        .main{
+            margin: 20px;
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            width: 40%;
+            justify-content: center;
+            align-items: center;
+            margin: 0 auto;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+        
+    </style>
+</head>
+<body>
+    <div class="main">
+        <h1>Bài Trắc Nghiệm</h1>
+        <div >
+            <p style ="font-size: 22px;margin-left: 10px;"> Câu hỏi 1: HTML là viết tắt của cụm từ nào</p>
+        </div>
+        <div class = "quiz">
+            <input type="radio" name="answer" value="yes" >
+            <label>Hyperlinks and Text Markup Language</label><br>
+            <input type ='radio' name='answer' value='no' >
+            <label>Hypertext Markup Language</label><br>
+            <input type='radio' name='answer' value='no'>
+            <label>Home Tool Markup Language</label><br>
+            
+            <button class = "button" onclick="checkAnswer()">Nộp bài</button>
+            <div class ="answer" id="1"> Đúng! HTML là Hybertext Markup Language</div>
+            <div class ="answer" id="2"> Sai! Hãy thử lại</div>
+            
+
+        </div>
+        
+    </div>
+    <script>
+        function checkAnswer() {
+            const selectedAnswer = document.querySelector('input[name="answer"]:checked');
+            const isCorrect = selectedAnswer.value === "yes";
+
+            document.getElementById("1").style.display = isCorrect ? "block" : "none";
+            document.getElementById("2").style.display = !isCorrect ? "block" : "none";
+        }
+    </script>
+    
+</body>
+</html>

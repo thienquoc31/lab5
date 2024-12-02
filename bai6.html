@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>bai 6</title>
+    <style>
+        body{
+           
+            font-family: Arial;
+            font-weight: 450;
+            
+            margin: 0;
+            padding: 0;
+            
+        }
+        .login{
+            color: white;
+            background-color: #008deb;
+            
+            font-size: 30px;
+            margin: 0;
+            padding: 10px;
+            
+            
+        }
+        .conteiner{
+            margin: 0 auto;
+            line-height: 1.2;
+            
+            width: 450px;
+            height: 230px;
+            margin:20px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            border:  1px solid;
+            border-color: #008deb;
+            border-radius: 5px;
+            box-shadow:  15px 15px 20px rgba(0, 0, 0, 0.3);
+            display: block;
+        }
+        .form-group{
+            display: flex;
+            flex-direction: column;
+            border-bottom: #008deb 1px solid;
+            height: 110px;
+        }
+        .row{
+            
+            width: 100%;
+        }
+        .r25{
+            width: 25%;
+            float: left;
+            text-align: right;
+            margin-right: 20px;
+            margin-top:10px;
+            font-size: 15px;
+            margin-left: 3px;
+        }
+        .r75{
+            width: 50%;
+            float: left;
+            text-align: left;
+            margin-top: 10px;
+            font-size: 15px;
+        }
+        .r75:hover{
+            border: 1px red solid;
+        }
+        .r75:focus{
+            background-color: pink;
+            color: green;
+        }
+        #Language{
+            width: 30%;
+            float: left;
+            text-align: left;
+            margin-top: 10px;
+            font-size: 15px;
+            margin-bottom: 20px;
+            border-bottom: 1px solid #008deb;
+
+        }
+        #a2{
+            text-align: center;
+            margin-top:20px;
+        
+        }
+        button{
+            font-size: 20px;
+        }
+     
+        
+    </style>
+</head>
+<body>
+    <div class="conteiner" class="ac">
+        <div class="login" id="loginform">Login Form</div>
+        <form>
+        <div class="form-group">
+            <div class="row"> 
+                <label class="r25" id="user">User name: </label>
+                <input class="r75" id="userBar">
+            <div class="row">
+                <label class="r25" id="pass">Password: </label>
+                <input class="r75" id="passBar">
+            </div>
+            <div class="row">
+                <label class="r25" id="lang">Language:</label>
+                <select id="Language" name="Language">
+                    <option value="En" selected>English</option>
+                    <option value="Vi">Vietnamese</option>
+                    
+                </select>
+        </div>
+
+        </div>
+        <div id="a2" >
+            <button id="button1">Login</button>
+            <button id="button2">Register</button>
+        </div>
+        </form>
+    </div>
+    <script>
+        const languageSelect = document.getElementById("Language");
+        const translation = {
+            En: {
+                loginform: "Login Form",
+                user: "User name:",
+                pass: "Password:",
+                lang: "Language:",
+                button1: "Login",
+                button2: "Register"
+            },
+            Vi: {
+                loginform: "Form đăng nhập",
+                user: "Tên người dùng:",
+                pass: "Mật khẩu:",
+                lang: "Ngôn ngữ:",
+                button1: "Đăng nhập",
+                button2: "Đăng ký"
+            }
+        };
+        const logElement = document.getElementById("loginform");
+        const userElement = document.getElementById("user");
+        const passElement = document.getElementById("pass");
+        const langElement = document.getElementById("lang");
+        const button1Element = document.getElementById("button1");
+        const button2Element = document.getElementById("button2");
+
+        languageSelect.addEventListener("change", () => {
+            const selectedLanguage = languageSelect.value;
+            logElement.textContent = translation[selectedLanguage].loginform
+            userElement.textContent = translation[selectedLanguage].user;
+            passElement.textContent = translation[selectedLanguage].pass;
+            langElement.textContent = translation[selectedLanguage].lang;
+            button1Element.textContent = translation[selectedLanguage].button1;
+            button2Element.textContent = translation[selectedLanguage].button2;
+        });
+        
+        function checkString(str) {
+            const minLength = 8;
+            const hasNumber = /\d/.test(str);
+            const hasLetter = /[a-zA-Z]/.test(str);
+            
+            return str.length >= minLength && hasNumber && hasLetter && hasSpecialChar;
+            }
+        const form = document.querySelector('form');
+            form.addEventListener('submit', (event) => {
+            event.preventDefault();
+            const username = document.getElementById('username').value; 
+
+            const password = document.getElementById('password').value;
+            if(username.length < 1 || !checkString(password) || username.length >20 || password.length <6 ){
+                alert('Please enter valid username and password.');
+                return;
+            }
+            console.log('Form submitted:', username, password);
+        });
+    </script>   
+</body>
+</html>
