@@ -16,43 +16,55 @@
             border: none;
             border-radius: 8px;
             padding: 10px 20px;
-            font-size: 20px;
+            font-size: 18px;
             cursor: pointer;
+            height: 6vh;
             
         }
         #myParagraph {
             font-size: 18px;
             
         }
-        div{
+        
+        #div1{
             position: fixed;
             align-items: center;
             top:0;
             left: 0;
             width: 100%;
             height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            flex-direction: column;
            }
+
     </style>
 </head>
 <body>
-    <div>
+    <div id="div1">
         <p id="myParagraph">Đây là đoạn văn cần thay đổi kích thước.</p>
-        <button class ="button" onclick="increaseFontSize()">Tăng kích thước</button>
-        <button class ="button" onclick="decreaseFontSize()">Giảm kích thước</button>
+        <div>
+            <button class ="button" onclick="increaseFontSize()">Tăng kích thước</button>
+            <button class ="button" onclick="decreaseFontSize()">Giảm kích thước</button>
+        </div>
+        
     </div>
     <script>
+        let fontSize =16;
         
         function increaseFontSize() {
             let paragraph = document.getElementById('myParagraph');
-            const computedStyle = window.getComputedStyle(paragraph);
-            let fontSize = computedStyle.fontSize;
-            paragraph.style.fontSize = (parseInt(fontSize) + 2) + 'px';
+            
+            fontSize = fontSize + 2
+            paragraph.style.fontSize = fontSize + 'px';
         }
         function decreaseFontSize() {
             let paragraph = document.getElementById('myParagraph');
-            const computedStyle = window.getComputedStyle(paragraph);
-            let fontSize = computedStyle.fontSize;
-            paragraph.style.fontSize = (parseInt(fontSize) - 2) + 'px';
+            
+            fontSize = fontSize - 2
+            paragraph.style.fontSize = fontSize + 'px';
         }
 
     </script>
