@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Câu 3</title>
+    <style>
+        body{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            font-family: Arial, Helvetica, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f6f5f7;
+
+        }
+        h1{
+            font-weight: 1000;
+            margin-bottom: 0px;
+        }
+        .container{
+            
+            position: relative;
+            border-radius: 20px;
+            overflow: hidden;
+            width: 800px;            
+            min-height: 480px;
+            box-shadow: 5px 10px 5px 10px rgba(0,0,0,0.2);
+
+       }
+        .p{
+            font-size: 14px;
+            line-height: 20px;
+            margin-top: 20px;
+            margin-bottom: 20px;
+            margin-left: 0;
+            margin-right: 0;
+
+        }
+        .span{
+            font-size: 13px;
+            margin-bottom: 10px;
+       }
+        
+        .button1{
+            background-color: #f94b2c;
+            border-radius: 20px;
+            border: none;
+            color: white;
+            padding: 10px 45px;
+            margin-top: 10px;
+            cursor: pointer;
+            font-size: 15px;
+            font-weight: 600;
+
+        }.button2{
+            background-color: #85aa8f;
+            border-radius: 20px;
+            border: white 1px solid;
+            color: white;
+            padding: 10px 45px;
+            margin-top: 10px;
+            cursor: pointer;
+            font-size: 15px;
+            font-weight: 600;
+
+        }
+        .container button1.hiden{
+            background-color: transparent;
+        }.container button2.hiden{
+            background-color: transparent;
+        }
+
+        .container form{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            padding: 0 40px;
+            height: 100%;
+        }
+        .container input{
+            background-color: #EEEEEE;
+            margin-top:5px;
+            margin-bottom: 10px;
+            border: none;
+            padding: 10px 15px;
+            width: 80%;
+            border-radius: 5px;
+            font-size: 13px;
+            
+        }
+        .form-container{
+            position: absolute;
+            top: 0;
+            height: 100%;
+            transition: all 1s ease-in-out;
+        }
+        .sign-up{
+            left: 0;
+            width:50%;
+            opacity: 0;
+            z-index: 1;
+        } 
+        .container.active .sign-up{
+            transform: translateX(100%);
+            opacity: 1;
+            z-index: 5;
+            animation: move 1s;
+        }
+        .sign-in{
+            left: 0;
+            width:50%;
+            z-index: 2;
+        }
+        .container.active.sign-in{
+            transform: translateX(-100%);
+        }
+        @keyframes move{
+            0%, 49%{
+                opacity: 0;
+                z-index: 1;
+            }
+            50%, 100%{
+                opacity: 1;
+                z-index: 5;
+            }
+        }
+        .Toggle-container{
+            position: absolute;
+            color: #f6f5f7;
+            align-self: center;
+            top: 0;
+            height: 100%;
+            width: 50%;
+            left:50%;
+            overflow: hidden;
+            transition: all 1s ease-in-out;
+            
+            z-index: 1000;
+        }
+        .container.active .Toggle-container{
+            transform: translateX(-100%);
+            
+        }
+        .toggle{
+            background-color: #85aa8f;
+            left: -100%;
+            height: 100%;
+            width: 200%;
+            border-radius: 20px;
+            position: relative;
+            transition: all 1s ease-in-out;
+            transform: translateX(0);
+        }
+
+        .container.active .toggle{
+            transform: translateX(50%);
+            }
+
+        .toggle-panel{
+            position: absolute;
+            width: 50%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            padding: 0 30px;
+            text-align: center;
+            top: 0;
+            transform: translateX(0);
+            transition: all 0.6s ease-in-out;
+            }
+
+            .toggle-left{
+                transform: translateX(-200%);
+                }
+
+            .toggle-right{
+                right: 0;
+                transform: translateX();
+            }
+
+        .container.active .toggle-left{
+            transform: translateX(0);
+            }
+
+        
+
+    </style>
+</head>
+<body>
+    <div class ="container" id ="container">
+        <div class ="form-container sign-up">
+            <form>
+                <h1> Create Account</h1>
+                <span class="span">Or use your Email for registration</span>
+                <input type ="text" placeholder="Name">
+                <input type ="email" placeholder="Enter E-mail">
+                <input type = "password" placeholder="Enter password">
+                <button class ="button1" >SIGN UP</button>
+
+            </form>
+        </div>
+        <div class ="form-container sign-in">
+            <form>
+                <h1> Sign in</h1>
+                <span class="span">Or use your account</span>
+                <input type ="email" placeholder="Enter E-mail">
+                <input type = "password" placeholder="Enter password">
+                <span class="span" style="margin-top: 20px;">Forgot your password?</span>
+                <button class ="button1">SIGN IN</button>
+
+            </form>
+        </div>
+
+        <div class="Toggle-container">
+            <div class="toggle">
+                <div class ="toggle-panel toggle-left">
+                    <h1> Welcome back!</h1>
+                    <p class ="p">To keep connected with us please login<br> with your personal info</p>
+                    <button  class="button2" id ='login'>SIGN IN</button>
+                </div>
+                <div class ="toggle-panel toggle-right" >
+                    <h1> Hello, Friend!</h1>
+                    <p class ="p">Enter your personal detail and start<br> journey with us</p>
+                    <button class="button2"  id="register">SIGN UP</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <script>
+        const container = document.getElementById('container')
+        const registrationButton = document.getElementById('register');
+        const loginButton = document.getElementById('login');
+
+        registrationButton.addEventListener('click', () => {
+            container.classList.add("active")
+        });
+
+        loginButton.addEventListener('click', () => {
+            container.classList.remove("active");
+        });
+    </script>
+    
+</body>
+</html>
