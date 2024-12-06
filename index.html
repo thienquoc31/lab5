@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bài 2</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #e6e8e7;
+      font-size: 20px;
+    }
+
+    header {
+      background-color: #2aa745;
+      color: white;
+      padding: 20px;
+      text-align: center;
+      height: 10%;
+      width: 100vw;
+      
+    }
+
+    nav ul {
+      list-style: none;
+      font-size: larger;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+    }
+
+    nav li {
+      margin: 0 10px;
+    }
+    nav li a{
+      text-decoration: none;
+      color: white;
+      font-weight: bold;
+    }
+
+    main {
+      height: 40%;
+      padding: 20px;
+      
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-left: 100px;
+      
+    }
+    #find{
+      color: #2aa745;
+      font-size: 60px;
+    }
+    .MainImg{
+      height: 37%;
+      width: 47vw;
+      margin-right: 1vw;
+      
+    }
+        
+    .ourproduct{
+      height: 600px;
+      max-height: 40%;
+      width: 100vw;
+      text-align: center;
+      padding: 20px;
+    }
+    
+    footer {
+      text-align: center;
+      padding: 10px;
+      background-color: #333333;
+      color: white;
+      height: 6%;
+      width: 100vw;
+      margin: 0;
+      
+    }
+    h1{
+      margin-top: 0;
+      margin-bottom: 2vh;
+      font-size: 40px;
+      
+    }
+    .addProduct{
+      height: 10%;
+    }
+
+    .add-btn{
+      color: white;
+      background-color: #2aa745;
+      border: none;}
+    input{
+      font-size: 15px;
+      margin-right: 10px;
+      height: 35px;
+      width: 150px;
+      border-radius: 5px;
+      border: 0.5px solid black;
+      margin-bottom: 10px;
+    }
+    button{
+      font-size: 20px;
+      margin-right: 10px;
+      height: 35px;
+      width: 140px;
+      border-radius: 5px;
+      border: 0.5px solid black
+    }
+    .product-container{
+      width: 100vw;
+      height: 300px;
+      padding: 10px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: row;
+    }
+    .products{
+      height: 300px;
+      width: 230px;
+      background-color: white;
+      margin: 10px;
+      padding: 0;
+      border: #6b6868 0.1px solid;
+      border-radius: 5px;
+
+    }
+    .img{
+      display: flex;
+      justify-content: center;
+      height: 150px;
+      padding: 10px;
+    }
+    .btn{
+      width: 100px;
+    }
+    .id{
+      margin-top: 10px;
+    }
+    .name{
+      color: #2aa745;
+      font-size: 20px;
+      font-weight: bold;
+      margin-top: 10px;
+      margin-bottom: 10px;
+    }
+    .edit-btn, .delete-btn {
+      background-color: #ffc107;
+      padding: 5px 10px;
+      border: none;
+      border-radius: 3px;
+      cursor: pointer;
+      height: 30px;
+      width: 50px;
+      
+    }
+    .delete-btn {
+      background-color: #dc3545;
+      color: white;
+      width: 70px;
+    }
+    .edit-btn:hover {
+      background-color: #e0a800;
+    }
+    .delete-btn:hover {
+      background-color: #c82333;
+    }
+    </style>
+</head>
+<body>
+  
+  <header>
+    <h1>Welcome to Our Clothing Store</h1>
+      <nav>
+        <ul>
+          <li><a href="#home">Home</a></li>
+          <li><a href="#products">Products</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+  </header>
+      
+  <main id ="home">
+    <div>
+      <h2 id="find">Find Your Style</h2>
+      <p >Explore the latest fashion trends and timeless designs.</p>
+    </div>
+    <div>
+      <img class = "MainImg" src="https://maison-decor.vn/upload/products_image/cici-clothes-shop-products-image-280-1602044693-79N2D.jpg" alt="Cửa hàng quần áo">
+    </div>
+  </main>
+    <div class="ourproduct">
+      <h2>Our Products</h2>
+      <div class ="addProduct">
+        <input placeholder="Product Name" type="text" id="productName">
+        <input placeholder="Product Image URL" type="text" id="productURL">
+        <button class="add-btn" onclick="addProduct()">Add Product</button>
+      </div>
+    <div class="product-container" id="product-container">
+        <div class="products">
+          <div class ="id">ID: 1</div>
+          <div class ='img'><img src="https://canifa.com/blog/wp-content/uploads/2022/10/T-shirt-la-gi.webp" ></div>
+          <div class = name>T-shirt</div>
+          <div>
+            <button class ="edit-btn">Edit</button>
+            <button class ="delete-btn">Delete</button>
+          </div>
+
+        </div><div class="products">
+          <div class ='id'>ID: 2</div>
+          <div class ='img'><img src="https://down-vn.img.susercontent.com/file/vn-11134207-7r98o-lxpo46qo6v2x9b" ></div>
+          <div class = name>Jeans</div>
+          <div>
+            <button class="edit-btn" onclick="editProduct(this.parentElement)">Edit</button>
+            <button class="delete-btn" onclick="deleteProduct(this.parentElement)">Delete</button>
+          </div>
+
+        </div>
+
+
+      </div>
+    </div>
+    
+  
+  <footer>
+    <p id ="contact">&copy; 2024 Clothing Store. All rights reserved.</p>
+  </footer>
+  <script>
+    
+    function addProduct() {
+      let productName = document.getElementById('productName').value;
+      let productURL = document.getElementById('productURL').value;
+      if (productName && productURL) {
+        const productContainer = document.getElementById('product-container');
+        const newProduct = document.createElement('div');
+        newProduct.classList.add('products');
+
+        const idDiv = document.createElement('div');
+        idDiv.classList.add('id');
+        idDiv.textContent = `ID: ${productContainer.childElementCount + 1}`;
+
+        const imgDiv = document.createElement('div');
+        imgDiv.classList.add('img');
+        const productImage = document.createElement('img');
+        productImage.src = productURL;
+        imgDiv.appendChild(productImage);
+
+        const nameDiv = document.createElement('div');
+        nameDiv.classList.add('name');
+        nameDiv.textContent = productName;
+
+        const buttonDiv = document.createElement('div');
+        const editButton = document.createElement('button');
+        editButton.classList.add('edit-btn');
+        editButton.textContent = "Edit";
+        const deleteButton = document.createElement('button');
+        deleteButton.classList.add('delete-btn');
+        deleteButton.textContent = "Delete";
+        buttonDiv.appendChild(editButton);
+        buttonDiv.appendChild(deleteButton);
+
+        newProduct.appendChild(idDiv);
+        newProduct.appendChild(imgDiv);
+        newProduct.appendChild(nameDiv);
+        newProduct.appendChild(buttonDiv);
+
+        productContainer.appendChild(newProduct);
+
+        document.getElementById('productName').value = "";
+        document.getElementById('productURL').value = "";
+      } else {
+        alert('Vui lòng nhập đầy đủ thông tin sản phẩm');
+      }
+    }
+    function editProduct(productElement) {
+      const idDiv = productElement.querySelector('.id');
+      const nameDiv = productElement.querySelector('.name');
+      const imgDiv = productElement.querySelector('.img img'); 
+      const currentProductId = idDiv.textContent.split(':')[1].trim(); 
+      
+      const productNameInput = document.createElement('input');
+      productNameInput.type = 'text';
+      productNameInput.value = nameDiv.textContent;
+
+      const productURLInput = document.createElement('input');
+      productURLInput.type = 'text';
+      productURLInput.value = imgDiv.src; 
+    
+      nameDiv.replaceWith(productNameInput);
+      imgDiv.replaceWith(productURLInput);
+
+      const saveButton = document.createElement('button');
+      saveButton.textContent = 'Save';
+      saveButton.classList.add('save-btn');
+
+      saveButton.addEventListener('click', () => {
+        const updatedProductName = saveButton.parentElement.querySelector('input[type="text"]').value;
+        const updatedProductURL = saveButton.parentElement.querySelector('input[type="text"]').value; 
+        nameDiv.textContent = updatedProductName;
+        imgDiv.src = updatedProductURL;
+        saveButton.replaceWith(productElement.querySelector('.edit-btn'));
+      });
+      productElement.querySelector('.edit-btn').replaceWith(saveButton);
+    }
+    function deleteProduct() {
+      
+      if (confirm('Are you sure you want to delete this product?')) {
+        productElement.remove(all); 
+      }
+    }
+    
+
+  </script>
+</body>
+</html>
